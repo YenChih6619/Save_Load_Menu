@@ -1,100 +1,132 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SAVE & LOAD | 數位酒單</title>
-    <link rel="stylesheet" href="style.css">
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>SAVE & LOAD | Official Site</title>
+     <link rel="stylesheet" href="style.css">
+     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <nav class="top-nav">
-        <div class="search-bar-container">
-            <input type="text" id="searchInput" placeholder="搜尋：調酒名稱、成分、分類...">
-        </div>
-    </nav>
+     <nav class="navbar">
+          <div class="nav-container">
+               <div class="logo">SAVE & LOAD</div>
+               <div class="search-wrapper">
+                    <input type="text" id="searchInput" placeholder="搜尋酒單品項...">
+               </div>
+          </div>
+     </nav>
 
-    <div class="main-container">
-        <header class="main-header">
-            <div class="logo-area">
-                <h1>SAVE & LOAD</h1>
-                <div class="divider"></div>
-                <p class="menu-date">SETTING: 已建立新的遊戲存檔</p>
-            </div>
-        </header>
+     <header class="hero">
+          <div class="hero-content">
+               <h1>Life Hard, <br><span class="highlight">Play Harder.</span></h1>
+               <p>建立你的遊戲存檔，開始今晚的冒險。</p>
+               <div class="status-badge">伺服器狀態：開放中 {20:00~3:00}</div>
+          </div>
+     </header>
 
-        <div id="menuContent">
-            <div class="loader">讀取伺服器資料中...</div>
-        </div>
+     <div class="main-content">
+          <section class="info-section">
+               <div class="info-grid">
+                    <div class="info-card">
+                         <h3>最低消費</h3>
+                         <p>NT$300 / 每人單次登入</p>
+                    </div>
+                    <div class="info-card">
+                         <h3>關服維護</h3>
+                         <p>每週二固定關服</p>
+                    </div>
+                    <div class="info-card">
+                         <h3>外食規則</h3>
+                         <p>歡迎外食，但我們也有簡單吃的</p>
+                    </div>
+               </div>
+          </section>
 
-        <footer class="main-footer">
-            <p>© SAVE & LOAD | {20:00~3:00}</p>
-            <p>Life Hard, Play Harder.</p>
-        </footer>
-    </div>
+          <main id="menuContainer">
+               <div class="loading">正在讀取選單存檔...</div>
+          </main>
+     </div>
 
-    <script>
-        let menuData = [];
+     <footer class="footer">
+          <div class="footer-inner">
+               <p>© SAVE & LOAD. All Rights Reserved.</p>
+               <p>未滿十八歲禁止飲酒。酒後不開車，安全有保障。</p>
+          </div>
+     </footer>
 
-        async function fetchMenu() {
-            try {
-                // 讀取扁平化後的 Menu.json
-                const response = await fetch('Menu.json');
-                menuData = await response.json();
-                renderMenu(menuData);
-            } catch (e) {
-                document.getElementById('menuContent').innerHTML = '<p class="error">載入失敗，請確認檔案環境（建議使用 Live Server）。</p>';
-            }
-        }
+     <script>
+          let flatItems = [];
 
-        function renderMenu(data) {
-            const content = document.getElementById('menuContent');
-            if (data.length === 0) {
-                content.innerHTML = '<div class="no-result">找不到符合條件的品項</div>';
-                return;
-            }
+          async function init() {
+               try {
+                    const response = await fetch('Menu.json');
+                    const data = await response.json();
 
-            // 根據 section 自動分區
-            const sections = [...new Set(data.map(item => item.section))].sort();
-            let html = '';
+                    // 扁平化資料方便搜尋與渲染
+                    data.menu_standardized.forEach(cat => {
+                         cat.items.forEach(item => {
+                              flatItems.push({
+                                   ...item,
+                                   category: cat.category,
+                                   displayPrice: item.price !== undefined ? item.price : cat.price_default
+                              });
+                         });
+                    });
+                    render(flatItems);
+               } catch (e) {
+                    console.error(e);
+                    document.getElementById('menuContainer').innerHTML = "<p>存檔讀取失敗。</p>";
+               }
+          }
 
-            sections.forEach(sec => {
-                const items = data.filter(item => item.section === sec);
-                html += `
-                    <section class="menu-section">
-                        <h2 class="section-title"><span>${sec}</span></h2>
-                        <div class="menu-grid">
-                            ${items.map(item => `
-                                <div class="menu-card">
-                                    <div class="card-header">
-                                        <span class="type-tag">${item.type}</span>
-                                        <span class="price">NT$${item.price}</span>
-                                    </div>
-                                    <h3 class="item-name">${item.name}</h3>
-                                    <p class="flavor">成分：${item.flavor}</p>
-                                    <div class="divider-small"></div>
-                                    <p class="desc">${item.desc}</p>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </section>
-                `;
-            });
-            content.innerHTML = html;
-        }
+          function render(items) {
+               const container = document.getElementById('menuContainer');
+               const categories = [...new Set(items.map(i => i.category))];
 
-        // 搜尋邏輯
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            const k = e.target.value.toLowerCase();
-            const filtered = menuData.filter(i => 
-                i.name.toLowerCase().includes(k) || 
-                i.flavor.toLowerCase().includes(k) || 
-                i.type.toLowerCase().includes(k)
-            );
-            renderMenu(filtered);
-        });
+               if (items.length === 0) {
+                    container.innerHTML = '<div class="no-result">沒有找到相關品項</div>';
+                    return;
+               }
 
-        window.onload = fetchMenu;
-    </script>
+               let html = '';
+               categories.forEach(cat => {
+                    const sectionItems = items.filter(i => i.category === cat);
+                    html += `
+                         <section class="menu-group">
+                             <h2 class="category-title">${cat}</h2>
+                             <div class="items-grid">
+                                 ${sectionItems.map(item => `
+                                     <div class="item-card">
+                                         <div class="item-info">
+                                             <span class="item-type">${item.type}</span>
+                                             <h4 class="item-name">${item.name}</h4>
+                                             <p class="item-contents">${item.contents.join(' / ')}</p>
+                                         </div>
+                                         <div class="item-price">
+                                             ${item.displayPrice > 0 ? 'NT$' + item.displayPrice : '價格電洽'}
+                                         </div>
+                                     </div>
+                                 `).join('')}
+                             </div>
+                         </section>
+                     `;
+               });
+               container.innerHTML = html;
+          }
+
+          document.getElementById('searchInput').addEventListener('input', (e) => {
+               const keyword = e.target.value.toLowerCase();
+               const filtered = flatItems.filter(i =>
+                    i.name.toLowerCase().includes(keyword) ||
+                    i.contents.some(c => c.toLowerCase().includes(keyword)) ||
+                    i.category.toLowerCase().includes(keyword)
+               );
+               render(filtered);
+          });
+
+          init();
+     </script>
 </body>
 </html>

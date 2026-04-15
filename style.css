@@ -1,66 +1,199 @@
 :root {
-    --primary: #3a859e;
-    --bg: #e0e0e0;
-    --dark: #1a1a1a;
+     --primary: #3a859e; /* 主色調：深湖藍 */
+     --secondary: #ae8c5f; /* 副色調：古銅棕 */
+     --bg: #ffffff;
+     --text: #333333;
+     --light-gray: #f4f4f4;
+     --nav-height: 60px;
+}
+
+* {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
 }
 
 body {
-    background-color: #222;
-    margin: 0;
-    font-family: sans-serif;
-    color: var(--dark);
+     font-family: 'Noto Sans TC', sans-serif;
+     background-color: var(--bg);
+     color: var(--text);
+     line-height: 1.6;
 }
 
-/* 搜尋列 */
-.top-nav {
-    position: sticky; top: 0; z-index: 100;
-    background: var(--dark);
-    padding: 15px;
+/* Navbar - Uniqlo 極簡風 */
+.navbar {
+     position: fixed;
+     top: 0;
+     width: 100%;
+     height: var(--nav-height);
+     background: white;
+     border-bottom: 1px solid #ddd;
+     z-index: 1000;
+     display: flex;
+     align-items: center;
 }
+
+.nav-container {
+     max-width: 1200px;
+     width: 100%;
+     margin: 0 auto;
+     padding: 0 20px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+}
+
+.logo {
+     font-weight: 700;
+     font-size: 1.5rem;
+     color: var(--primary);
+     letter-spacing: -1px;
+}
+
 #searchInput {
-    width: 100%; padding: 10px;
-    border: 2px solid var(--primary);
-    background: #333; color: white;
-    border-radius: 4px;
+     padding: 8px 12px;
+     border: 1px solid #ccc;
+     width: 250px;
+     outline: none;
+     transition: border 0.3s;
 }
 
-.main-container {
-    max-width: 900px; margin: 0 auto;
-    background: var(--bg); padding: 30px;
-    min-height: 100vh;
+     #searchInput:focus {
+          border-color: var(--primary);
+     }
+
+/* Hero Section */
+.hero {
+     margin-top: var(--nav-height);
+     padding: 100px 20px;
+     background-color: var(--light-gray);
+     text-align: center;
 }
 
-.main-header { text-align: center; margin-bottom: 40px; }
-.logo-area h1 { font-size: 2.5rem; letter-spacing: 5px; margin: 0; }
-.divider { height: 3px; background: var(--dark); margin: 10px auto; width: 50%; }
+     .hero h1 {
+          font-size: 3.5rem;
+          line-height: 1.1;
+          margin-bottom: 20px;
+          color: var(--text);
+     }
 
-/* 分區標題 */
-.section-title {
-    border-left: 8px solid var(--primary);
-    padding-left: 15px; margin: 40px 0 20px;
-    font-size: 1.5rem; background: #d0d0d0;
+.highlight {
+     color: var(--primary);
 }
 
-/* 網格佈局 */
-.menu-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
+.status-badge {
+     display: inline-block;
+     margin-top: 30px;
+     padding: 5px 15px;
+     background: var(--secondary);
+     color: white;
+     font-size: 0.9rem;
+     font-weight: bold;
 }
 
-/* 卡片風格 */
-.menu-card {
-    background: white; border: 1px solid #ccc;
-    padding: 20px; position: relative;
-    box-shadow: 4px 4px 0px var(--primary);
+/* Main Content Area */
+.main-content {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 60px 20px;
 }
 
-.card-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
-.type-tag { background: var(--primary); color: white; padding: 2px 6px; font-size: 0.8rem; }
-.price { font-weight: bold; color: var(--primary); }
+/* Info Cards */
+.info-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 30px;
+     margin-bottom: 80px;
+}
 
-.item-name { margin: 5px 0; font-size: 1.2rem; color: var(--dark); }
-.flavor { font-size: 0.9rem; color: #666; font-style: italic; }
-.desc { font-size: 0.85rem; line-height: 1.4; }
-.divider-small { height: 1px; background: #eee; margin: 10px 0; }
+.info-card {
+     padding: 30px;
+     background: var(--light-gray);
+     border-top: 4px solid var(--secondary);
+}
 
-.main-footer { text-align: center; margin-top: 50px; color: #777; font-size: 0.8rem; }
+     .info-card h3 {
+          color: var(--secondary);
+          margin-bottom: 10px;
+          font-size: 1.1rem;
+     }
+
+/* Menu Section */
+.menu-group {
+     margin-bottom: 60px;
+}
+
+.category-title {
+     font-size: 2rem;
+     border-bottom: 2px solid var(--primary);
+     padding-bottom: 10px;
+     margin-bottom: 30px;
+     color: var(--primary);
+}
+
+.items-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+     gap: 20px;
+}
+
+.item-card {
+     display: flex;
+     justify-content: space-between;
+     padding: 20px;
+     border: 1px solid #eee;
+     transition: 0.3s;
+}
+
+     .item-card:hover {
+          background: var(--light-gray);
+     }
+
+.item-type {
+     display: block;
+     font-size: 0.7rem;
+     color: var(--secondary);
+     font-weight: bold;
+     text-transform: uppercase;
+     margin-bottom: 5px;
+}
+
+.item-name {
+     font-size: 1.1rem;
+     margin-bottom: 5px;
+}
+
+.item-contents {
+     font-size: 0.85rem;
+     color: #777;
+}
+
+.item-price {
+     font-weight: 700;
+     color: var(--primary);
+     white-space: nowrap;
+     margin-left: 15px;
+}
+
+/* Footer */
+.footer {
+     padding: 60px 20px;
+     background: var(--dark, #222);
+     color: #999;
+     text-align: center;
+     font-size: 0.8rem;
+}
+
+.footer-inner p {
+     margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+     .hero h1 {
+          font-size: 2.5rem;
+     }
+
+     #searchInput {
+          width: 150px;
+     }
+}

@@ -103,6 +103,7 @@
 
                     data.menu_standardized.forEach(cat => {
                          cat.items.forEach(item => {
+                              // 將原始資料平坦化，並統一計算顯示價格
                               flatItems.push({
                                    ...item,
                                    category: cat.category,
@@ -113,20 +114,23 @@
 
                     const categories = [...new Set(flatItems.map(i => i.category))];
                     renderTabs(categories);
-                    switchCategory(categories[0]);
+                    if (categories.length > 0) {
+                         switchCategory(categories[0]);
+                    }
                     setupObserver();
                } catch (e) {
-                    console.error(e);
+                    console.error("資料讀取失敗:", e);
+                    document.getElementById('menuContainer').innerHTML = "載入失敗，請檢查資料來源。";
                }
           }
 
           function renderTabs(categories) {
                const tabsList = document.getElementById('tabsList');
                tabsList.innerHTML = categories.map(cat => `
-                          <button class="tab-btn" onclick="switchCategory('${cat}')" data-category="${cat}">
-                              ${cat}
-                          </button>
-                      `).join('');
+                     <button class="tab-btn" onclick="switchCategory('${cat}')" data-category="${cat}">
+                         ${cat}
+                     </button>
+                 `).join('');
           }
 
           function switchCategory(cat) {
@@ -145,9 +149,9 @@
 
                setTimeout(() => {
                     container.innerHTML = `
-                 <div class="items-grid-cards">
-                     ${items.map(item => {
-                         // 1. 處理顯示內容 (優先順序：成分 > 選項 > 描述)
+                         <div class="items-grid-cards">
+                             ${items.map(item => {
+                         // 統一處理詳細內容顯示邏輯
                          let displayDetails = "";
                          if (item.ingredients) {
                               displayDetails = item.ingredients.join(' / ');
@@ -157,44 +161,53 @@
                               displayDetails = item.description;
                          }
 
-                         // 2. 處理價格顯示 (判斷是否為數字)
+                         // 處理價格格式
                          const priceTag = typeof item.displayPrice === 'number'
                               ? `NT$${item.displayPrice}`
                               : item.displayPrice;
 
-                         // 3. 處理標籤 (Type)
-                         const typeTag = item.type || "Special";
+                         const typeTag = item.type || "Cocktail";
 
                          return `
-                             <div class="menu-card-horizontal">
-                                 <div class="card-image">
-                                     <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=400&auto=format&fit=crop" alt="${item.name}">
-                                     <div class="image-gradient"></div>
-                                 </div>
-                                 <div class="card-content">
-                                     <div class="card-top">
-                                         <span class="i-type">${typeTag}</span>
-                                         <span class="i-price">${priceTag}</span>
+                                     <div class="menu-card-horizontal">
+                                         <div class="card-image">
+                                             <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=400&auto=format&fit=crop" alt="${item.name}">
+                                             <div class="image-gradient"></div>
+                                         </div>
+                                         <div class="card-content">
+                                             <div class="card-top">
+                                                 <span class="i-type">${typeTag}</span>
+                                                 <span class="i-price">${priceTag}</span>
+                                             </div>
+                                             <h4 class="i-name">${item.name}</h4>
+                                             <p class="i-contents">${displayDetails}</p>
+                                         </div>
                                      </div>
-                                     <h4 class="i-name">${item.name}</h4>
-                                     <p class="i-contents">${displayDetails}</p>
-                                 </div>
-                             </div>
-                         `;
+                                 `;
                     }).join('')}
-                 </div>
-             `;
+                         </div>
+                     `;
                     container.classList.add('active');
                }, 300);
           }
 
           document.getElementById('searchInput').addEventListener('input', (e) => {
                const k = e.target.value.toLowerCase();
-               if (k === "") { switchCategory(currentCategory); return; }
-               const filtered = flatItems.filter(i =>
-                    i.name.toLowerCase().includes(k) ||
-                    i.contents.some(c => c.toLowerCase().includes(k))
-               );
+               if (k === "") {
+                    switchCategory(currentCategory);
+                    return;
+               }
+
+               // 修正搜尋邏輯，適應多種欄位結構
+               const filtered = flatItems.filter(i => {
+                    const nameMatch = i.name.toLowerCase().includes(k);
+                    const ingredientsMatch = i.ingredients && i.ingredients.some(c => c.toLowerCase().includes(k));
+                    const optionsMatch = i.options && i.options.some(c => c.toLowerCase().includes(k));
+                    const descMatch = i.description && i.description.toLowerCase().includes(k);
+
+                    return nameMatch || ingredientsMatch || optionsMatch || descMatch;
+               });
+
                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
                renderMenuCards(filtered);
           });
@@ -208,7 +221,7 @@
                document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
           }
 
-          init();
+          window.onload = init;
      </script>
 </body>
 </html>

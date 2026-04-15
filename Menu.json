@@ -7,59 +7,59 @@
                "items": [
                     {
                          "name": "MOSCOS MULE",
-                         "description": "伏特加、薑汁汽水、銅杯"
+                         "description": "把伏特加跟薑汁汽水一起放在鋼杯裡面,清爽好喝"
                     },
                     {
                          "name": "YUKIGUNI",
-                         "description": "日式調酒，使用酒漬櫻桃"
+                         "description": "非常經典的日式調酒,但我沒有綠櫻桃所以用酒漬櫻桃"
                     },
                     {
                          "name": "NEGRONI",
-                         "description": "琴酒基底，甜中帶苦"
+                         "description": "琴酒基底,甜甜的苦苦的我下雨天很喜歡喝這杯"
                     },
                     {
                          "name": "AVIATION",
-                         "description": "紫羅蘭香、黑櫻桃、藍色調"
+                         "description": "紫羅蘭香加黑櫻桃,藍色的很漂亮"
                     },
                     {
                          "name": "SINGAPORE SLING",
-                         "description": "酸甜熱帶水果風味"
+                         "description": "酸酸甜甜充滿熱帶水果風味的調酒"
                     },
                     {
                          "name": "CHAPLIN",
-                         "description": "莓果調性、杏桃，輕鬆易飲"
+                         "description": "莓果調性加上杏桃,也是輕鬆易飲"
                     },
                     {
                          "name": "JUNGLE BIRD",
-                         "description": "熱帶風味調酒"
+                         "description": "這杯是充滿熱帶風味的調酒,喜歡熱帶水果的也可以試試這杯。"
                     },
                     {
                          "name": "HEMINGWAY DAIQUIRI",
-                         "description": "海明威喜愛的配方"
+                         "description": "就是那個文豪除了MOJITO之外最愛喝的酒"
                     },
                     {
                          "name": "MARGARITA",
-                         "description": "經典龍舌蘭調酒"
+                         "description": "講到龍舌蘭調酒我最直覺就是它"
                     },
                     {
                          "name": "EL DIABLO",
-                         "description": "口感輕鬆的龍舌蘭調酒"
+                         "description": "這杯酒叫暗黑破壞神不放上來對不起我自己但喝起來其實很輕鬆"
                     },
                     {
                          "name": "GOD FATHER",
-                         "description": "杏仁、威士忌（店家特製版本）"
+                         "description": "不討厭杏仁跟威士忌的話我很推薦喝看看我的版本"
                     },
                     {
                          "name": "GOLD RUSH",
-                         "description": "蜂蜜與波本威士忌"
+                         "description": "比起威士忌酸酒我更喜歡這杯蜂蜜跟波本真的很搭"
                     },
                     {
                          "name": "SIDE CAR",
-                         "description": "白蘭地基底經典款"
+                         "description": "白蘭地調酒第一杯就是想到它但真的很難做 我只是搖飲料的"
                     },
                     {
                          "name": "METROPOLE",
-                         "description": "口感偏 Dry"
+                         "description": "很多人會把這杯跟柯夢波丹搞錯但完全不一樣 我覺得這杯超Dry"
                     }
                ]
           },
@@ -128,7 +128,7 @@
                     },
                     {
                          "name": "客製化即興特調",
-                         "description": "根據喜好風味、基酒、酸甜、氣泡需求調整"
+                         "description": "這個招式表沒看到你喜歡的? 那不然給我你主要想要的風味，喜歡或討厭甚麼酒，酸的甜的有沒有氣泡，剩下的就交給我吧 <3"
                     }
                ]
           },
@@ -153,7 +153,7 @@
                     {
                          "name": "白色祝福",
                          "price": 150,
-                         "ingredients": [ "拿鐵" ]
+                         "description": "名字就是在裝逼,其實就是拿鐵"
                     },
                     {
                          "name": "我是小朋友我喝果汁",
@@ -178,37 +178,39 @@
                     {
                          "name": "小紅酒",
                          "price": 300,
-                         "description": "單杯瓶裝"
+                         "description": "一瓶就是一杯的量精緻方便"
                     },
                     {
                          "name": "小白酒",
                          "price": 300,
-                         "description": "單杯瓶裝"
+                         "description": "這個一瓶也是一杯的量很搭下面的那個三明治"
                     },
                     {
                          "name": "小氣泡酒",
                          "price": 300,
-                         "description": "單杯瓶裝"
+                         "description": "小小慶祝一下也可以喝的氣泡酒不用擔心喝不完"
                     },
                     {
                          "name": "威士忌",
                          "type": "杯/瓶",
-                         "price": "視品項而定"
+                         "price": "價格依品項不同",
+                         "description": "看你要喝甚麼價格不一樣"
                     },
                     {
                          "name": "白蘭地",
                          "type": "杯/瓶",
-                         "price": "視品項而定"
+                         "price": "價格依品項不同",
+                         "description": "一樣看你喝的是甚麼價格不一樣"
                     },
                     {
                          "name": "艾雷特製三明治",
                          "price": 180,
-                         "ingredients": [ "生火腿", "艾曼塔乾酪", "鮪魚" ]
+                         "description": "生火腿+艾曼塔乾酪+鮪魚有點餓但又沒有那麼餓的話很推"
                     },
                     {
                          "name": "配動畫的點心盤",
                          "price": 120,
-                         "ingredients": [ "玉米片", "莎莎醬", "堅果" ]
+                         "description": "配電視的東西有玉米片 莎莎醬 堅果"
                     }
                ]
           }

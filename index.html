@@ -2,84 +2,105 @@
 <html lang="zh-TW">
 <head>
      <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
      <title>SAVE & LOAD | Official Site</title>
      <link rel="stylesheet" href="style.css">
-     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Oswald:wght@300;500;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 </head>
 <body>
 
      <nav class="navbar">
           <div class="nav-container">
                <div class="logo-wrapper">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-g3ndPhxWcYfm9A5Bqsb6zL4CA5qlgTtO5A&s" alt="SAVE & LOAD Logo" class="nav-logo">
-                    <span class="logo-text">SAVE & LOAD</span>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-g3ndPhxWcYfm9A5Bqsb6zL4CA5qlgTtO5A&s" alt="Logo" class="nav-logo">
+                    <div class="logo-text-group">
+                         <span class="logo-main">SAVE & LOAD</span>
+                         <span class="logo-sub">BAR & GAME</span>
+                    </div>
                </div>
                <div class="search-wrapper">
-                    <input type="text" id="searchInput" placeholder="搜尋酒單、成分...">
+                    <input type="text" id="searchInput" placeholder="搜尋存檔品項...">
                </div>
           </div>
      </nav>
 
      <header class="hero">
-          <div class="hero-content fade-in">
-               <h1>Life Hard, <br><span class="highlight">Play Harder.</span></h1>
-               <p>建立你的遊戲存檔，開始今晚的冒險。</p>
-               <div class="status-badge">伺服器狀態：開放中 {20:00~3:00}</div>
+          <div class="hero-image-box">
+               <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop" alt="Hero">
+               <div class="hero-overlay">
+                    <div class="hero-text-content">
+                         <h2 class="fade-in serif-text">EST. 2024</h2>
+                         <h1 class="fade-in">No Game, <br><span class="highlight">No Life.</span></h1>
+                         <div class="hero-line fade-in"></div>
+                         <p class="fade-in delay-1">這是一個實體存檔點。放下手把，乾一杯，重新裝填你的精神值。</p>
+                    </div>
+               </div>
           </div>
      </header>
 
      <div class="main-content">
-          <section class="info-photo-section fade-in">
-               <div class="info-grid">
-                    <div class="info-card">
-                         <h3>最低消費</h3>
-                         <p>NT$300 / 每人單次登入</p>
+          <section class="story-section fade-in">
+               <div class="info-grid-modern">
+                    <div class="info-item">
+                         <span class="info-tag">#RULES</span>
+                         <h3>登入規則</h3>
+                         <p>每人單次最低消費 NT$300。支持隊友間的點數互換。</p>
                     </div>
-                    <div class="info-card">
-                         <h3>關服維護</h3>
-                         <p>每週二固定關服</p>
+                    <div class="info-item">
+                         <span class="info-tag">#SERVER</span>
+                         <h3>開放時段</h3>
+                         <p>20:00 — 03:00 / 每個夜晚在此緩存。每週二伺服器維護關閉。</p>
                     </div>
-                    <div class="info-card">
-                         <h3>外食規則</h3>
-                         <p>歡迎外食，但我們也有簡單吃的</p>
-                    </div>
-               </div>
-
-               <div class="photo-gallery">
-                    <div class="gallery-item">
-                         <img src="path/to/your/bar_photo_1.jpg" alt="酒吧氛圍 1" class="gallery-img">
-                    </div>
-                    <div class="gallery-item">
-                         <img src="path/to/your/cocktail_photo_1.jpg" alt="調酒展示 1" class="gallery-img">
-                    </div>
-                    <div class="gallery-item">
-                         <img src="path/to/your/bar_photo_2.jpg" alt="酒吧氛圍 2" class="gallery-img">
+                    <div class="info-item">
+                         <span class="info-tag">#DLC</span>
+                         <h3>外掛內容</h3>
+                         <p>接受外食。如果你覺得餓了，歡迎在吧檯以外的區域進食。</p>
                     </div>
                </div>
           </section>
 
-          <main id="menuContainer" class="fade-in">
-               <div class="loading">正在讀取選單存檔...</div>
-          </main>
+          <section id="menuSection" class="fade-in">
+               <div class="section-visual-header">
+                    <div class="title-wrap">
+                         <span class="sub-title">ARCHIVE DATA</span>
+                         <h2 class="main-title">選單存檔</h2>
+                    </div>
+               </div>
+
+               <div class="tabs-sticky-wrap">
+                    <div id="tabsList" class="tabs-list"></div>
+               </div>
+
+               <main id="menuContainer" class="tab-content-area">
+                    <div class="loading">正在解密選單存檔...</div>
+               </main>
+          </section>
+
+          <section class="image-showcase fade-in">
+               <div class="showcase-box">
+                    <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=2069&auto=format&fit=crop" alt="Cocktail">
+                    <div class="showcase-caption">LEVEL 99 COCKTAILS</div>
+               </div>
+          </section>
      </div>
 
      <footer class="footer">
           <div class="footer-inner">
-               <p>© SAVE & LOAD. All Rights Reserved.</p>
-               <p class="warning">未滿十八歲禁止飲酒。酒後不開車，安全有保障。</p>
+               <h2 class="footer-logo">SAVE & LOAD</h2>
+               <div class="warning-text">未滿十八歲禁止飲酒。酒後不開車，安全有保障。</div>
+               <p class="copyright">© 2024 SAVE & LOAD BAR. ALL RIGHTS RESERVED.</p>
           </div>
      </footer>
 
      <script>
           let flatItems = [];
+          let currentCategory = "";
 
           async function init() {
                try {
                     const response = await fetch('Menu.json');
                     const data = await response.json();
 
-                    // 扁平化資料方便搜尋與渲染
                     data.menu_standardized.forEach(cat => {
                          cat.items.forEach(item => {
                               flatItems.push({
@@ -89,72 +110,102 @@
                               });
                          });
                     });
-                    render(flatItems);
-                    setupScrollEffect(); // 啟動捲動淡入特效
+
+                    const categories = [...new Set(flatItems.map(i => i.category))];
+                    renderTabs(categories);
+                    switchCategory(categories[0]);
+                    setupObserver();
                } catch (e) {
                     console.error(e);
-                    document.getElementById('menuContainer').innerHTML = "<p class='error'>存檔讀取失敗。請確認是否使用 Live Server 開啟。</p>";
                }
           }
 
-          function render(items) {
-               const container = document.getElementById('menuContainer');
-               const categories = [...new Set(items.map(i => i.category))];
+          function renderTabs(categories) {
+               const tabsList = document.getElementById('tabsList');
+               tabsList.innerHTML = categories.map(cat => `
+                          <button class="tab-btn" onclick="switchCategory('${cat}')" data-category="${cat}">
+                              ${cat}
+                          </button>
+                      `).join('');
+          }
 
-               if (items.length === 0) {
-                    container.innerHTML = '<div class="no-result">沒有找到相關品項</div>';
-                    return;
-               }
-
-               let html = '';
-               categories.forEach(cat => {
-                    const sectionItems = items.filter(i => i.category === cat);
-                    html += `
-                         <section class="menu-group">
-                             <h2 class="category-title">${cat}</h2>
-                             <div class="items-grid">
-                                 ${sectionItems.map(item => `
-                                     <div class="item-card">
-                                         <div class="item-info">
-                                             <span class="item-type">${item.type}</span>
-                                             <h4 class="item-name">${item.name}</h4>
-                                             <p class="item-contents">${item.contents.join(' / ')}</p>
-                                         </div>
-                                         <div class="item-price">
-                                             ${item.displayPrice > 0 ? 'NT$' + item.displayPrice : '價格電洽'}
-                                         </div>
-                                     </div>
-                                 `).join('')}
-                             </div>
-                         </section>
-                     `;
+          function switchCategory(cat) {
+               currentCategory = cat;
+               document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.toggle('active', btn.getAttribute('data-category') === cat);
                });
-               container.innerHTML = html;
+
+               const filtered = flatItems.filter(i => i.category === cat);
+               renderMenuCards(filtered);
           }
 
-          // 搜尋功能
+          function renderMenuCards(items) {
+               const container = document.getElementById('menuContainer');
+               container.classList.remove('active');
+
+               setTimeout(() => {
+                    container.innerHTML = `
+                 <div class="items-grid-cards">
+                     ${items.map(item => {
+                         // 1. 處理顯示內容 (優先順序：成分 > 選項 > 描述)
+                         let displayDetails = "";
+                         if (item.ingredients) {
+                              displayDetails = item.ingredients.join(' / ');
+                         } else if (item.options) {
+                              displayDetails = item.options.join(' / ');
+                         } else if (item.description) {
+                              displayDetails = item.description;
+                         }
+
+                         // 2. 處理價格顯示 (判斷是否為數字)
+                         const priceTag = typeof item.displayPrice === 'number'
+                              ? `NT$${item.displayPrice}`
+                              : item.displayPrice;
+
+                         // 3. 處理標籤 (Type)
+                         const typeTag = item.type || "Special";
+
+                         return `
+                             <div class="menu-card-horizontal">
+                                 <div class="card-image">
+                                     <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=400&auto=format&fit=crop" alt="${item.name}">
+                                     <div class="image-gradient"></div>
+                                 </div>
+                                 <div class="card-content">
+                                     <div class="card-top">
+                                         <span class="i-type">${typeTag}</span>
+                                         <span class="i-price">${priceTag}</span>
+                                     </div>
+                                     <h4 class="i-name">${item.name}</h4>
+                                     <p class="i-contents">${displayDetails}</p>
+                                 </div>
+                             </div>
+                         `;
+                    }).join('')}
+                 </div>
+             `;
+                    container.classList.add('active');
+               }, 300);
+          }
+
           document.getElementById('searchInput').addEventListener('input', (e) => {
-               const keyword = e.target.value.toLowerCase();
+               const k = e.target.value.toLowerCase();
+               if (k === "") { switchCategory(currentCategory); return; }
                const filtered = flatItems.filter(i =>
-                    i.name.toLowerCase().includes(keyword) ||
-                    i.contents.some(c => c.toLowerCase().includes(keyword)) ||
-                    i.category.toLowerCase().includes(keyword)
+                    i.name.toLowerCase().includes(k) ||
+                    i.contents.some(c => c.toLowerCase().includes(k))
                );
-               render(filtered);
+               document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+               renderMenuCards(filtered);
           });
 
-          // 捲動淡入特效邏輯 (Intersection Observer)
-          function setupScrollEffect() {
-               const observers = document.querySelectorAll('.fade-in');
-               const observer = new IntersectionObserver(entries => {
+          function setupObserver() {
+               const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
-                         if (entry.isIntersecting) {
-                              entry.target.classList.add('visible');
-                         }
+                         if (entry.isIntersecting) entry.target.classList.add('visible');
                     });
-               }, { threshold: 0.1 }); // 捲動到 10% 可見時觸發
-
-               observers.forEach(obs => observer.observe(obs));
+               }, { threshold: 0.1 });
+               document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
           }
 
           init();

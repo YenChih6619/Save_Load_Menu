@@ -1,63 +1,216 @@
 {
-    "store": "SAVE & LOAD",
-    "menu_standardized": [
-      {
-        "category": "經典模式",
-        "price_default": 300,
-        "items": [
-          { "name": "MOSCOS MULE", "type": "Cocktail", "contents": ["Vodka", "Ginger Ale"] },
-          { "name": "YUKIGUNI", "type": "Cocktail", "contents": ["Japanese Style", "Sake-soaked Cherry"] },
-          { "name": "NEGRONI", "type": "Cocktail", "contents": ["Gin Base", "Sweet & Bitter"] },
-          { "name": "AVIATION", "type": "Cocktail", "contents": ["Violet", "Black Cherry", "Blue Color"] },
-          { "name": "SINGAPORE SLING", "type": "Cocktail", "contents": ["Tropical Fruit", "Sweet & Sour"] },
-          { "name": "CHAPLIN", "type": "Cocktail", "contents": ["Berry", "Apricot"] },
-          { "name": "JUNGLE BIRD", "type": "Cocktail", "contents": ["Tropical Flavor"] },
-          { "name": "HEMINGWAY DAIQUIRI", "type": "Cocktail", "contents": ["Classic Hemingway Recipe"] },
-          { "name": "MARGARITA", "type": "Cocktail", "contents": ["Tequila Base"] },
-          { "name": "EL DIABLO", "type": "Cocktail", "contents": ["Tequila", "Light Flavor"] },
-          { "name": "GOD FATHER", "type": "Cocktail", "contents": ["Whiskey", "Amaretto"] },
-          { "name": "GOLD RUSH", "type": "Cocktail", "contents": ["Bourbon", "Honey"] },
-          { "name": "SIDE CAR", "type": "Cocktail", "contents": ["Brandy Base"] },
-          { "name": "METROPOLE", "type": "Cocktail", "contents": ["Dry Flavor"] }
-        ]
-      },
-      {
-        "category": "現代模式",
-        "items": [
-          { "name": "隨便", "price": 350, "type": "Cocktail", "contents": ["琴酒", "瑪黛茶", "洛神玫瑰醋", "黑糖"] },
-          { "name": "都可以", "price": 350, "type": "Cocktail", "contents": ["伏特加", "玄米茶", "小黃瓜", "蘇打水"] },
-          { "name": "沒想法", "price": 350, "type": "Cocktail", "contents": ["白蘭地", "白葡萄", "蜂蜜醋"] },
-          { "name": "你決定", "price": 350, "type": "Cocktail", "contents": ["琴酒", "東方美人茶", "荔枝", "麝香葡萄"] },
-          { "name": "初見安安", "price": 350, "type": "Cocktail", "contents": ["伏特加", "梅酒", "蘋果醋", "蘇打水"] },
-          { "name": "DD仔", "price": 350, "type": "Cocktail", "contents": ["白蘭地", "奶酒", "咖啡", "奶蓋"] },
-          { "name": "嘎奇粉", "price": 350, "type": "Cocktail", "contents": ["龍舌蘭", "黑醋栗", "蔓越莓", "香艾酒"] },
-          { "name": "CP廚", "price": 350, "type": "Cocktail", "contents": ["蘭姆酒", "紅茶", "鮮奶油", "蜂蜜", "黑糖"] },
-          { "name": "挑戰者", "price": 350, "type": "Cocktail", "contents": ["威士忌", "白蘭地", "苦精", "葡萄柚"] },
-          { "name": "古龍調查", "price": 350, "type": "Cocktail", "contents": ["野格", "香艾酒", "艾普羅", "多香果"] },
-          { "name": "薪王的化身", "price": 350, "type": "Cocktail", "contents": ["泥煤威士忌", "烏醋", "麝香葡萄", "薑汁汽水"] },
-          { "name": "神機錯亂", "price": 400, "type": "Cocktail", "contents": ["隨機隱藏配方"] }
-        ]
-      },
-      {
-        "category": "練習模式",
-        "items": [
-          { "name": "灰姑娘", "price": 250, "type": "Mocktail", "contents": ["柳橙汁", "鳳梨汁", "檸檬汁"] },
-          { "name": "蜂之舞", "price": 250, "type": "Mocktail", "contents": ["蜂蜜醋", "柳橙汁", "蘋果汁", "蘇打水"] },
-          { "name": "黑色詛咒", "price": 150, "type": "Mocktail", "contents": ["義式濃縮咖啡", "檸檬", "可樂"] },
-          { "name": "白色祝福", "price": 150, "type": "Mocktail", "contents": ["拿鐵"] },
-          { "name": "我是小朋友", "price": 100, "type": "Juice", "contents": ["蔓越莓", "柳橙", "蘋果", "鳳梨"] },
-          { "name": "今天以茶代酒", "price": 100, "type": "Tea", "contents": ["玄米茶", "紅茶", "玄米拿鐵", "紅茶拿鐵"] },
-          { "name": "肥宅快樂水", "price": 100, "type": "Soda", "contents": ["可樂", "雪碧", "通寧", "薑汁", "紅牛"] }
-        ]
-      },
-      {
-        "category": "DLC內容",
-        "items": [
-          { "name": "小紅酒/白酒/氣泡酒", "price": 300, "type": "Wine", "contents": ["單人瓶裝"] },
-          { "name": "精選威士忌/白蘭地", "price": 0, "type": "Spirit", "contents": ["杯裝/瓶裝", "價格電洽"] },
-          { "name": "艾雷特製三明治", "price": 180, "type": "Food", "contents": ["生火腿", "艾曼塔乾酪", "鮪魚"] },
-          { "name": "動畫點心盤", "price": 120, "type": "Food", "contents": ["玉米片", "莎莎醬", "堅果"] }
-        ]
-      }
-    ]
-  }
+     "store": "SAVE & LOAD",
+     "menu_standardized": [
+          {
+               "category": "經典模式",
+               "price_default": 300,
+               "items": [
+                    {
+                         "name": "MOSCOS MULE",
+                         "description": "伏特加、薑汁汽水、銅杯"
+                    },
+                    {
+                         "name": "YUKIGUNI",
+                         "description": "日式調酒，使用酒漬櫻桃"
+                    },
+                    {
+                         "name": "NEGRONI",
+                         "description": "琴酒基底，甜中帶苦"
+                    },
+                    {
+                         "name": "AVIATION",
+                         "description": "紫羅蘭香、黑櫻桃、藍色調"
+                    },
+                    {
+                         "name": "SINGAPORE SLING",
+                         "description": "酸甜熱帶水果風味"
+                    },
+                    {
+                         "name": "CHAPLIN",
+                         "description": "莓果調性、杏桃，輕鬆易飲"
+                    },
+                    {
+                         "name": "JUNGLE BIRD",
+                         "description": "熱帶風味調酒"
+                    },
+                    {
+                         "name": "HEMINGWAY DAIQUIRI",
+                         "description": "海明威喜愛的配方"
+                    },
+                    {
+                         "name": "MARGARITA",
+                         "description": "經典龍舌蘭調酒"
+                    },
+                    {
+                         "name": "EL DIABLO",
+                         "description": "口感輕鬆的龍舌蘭調酒"
+                    },
+                    {
+                         "name": "GOD FATHER",
+                         "description": "杏仁、威士忌（店家特製版本）"
+                    },
+                    {
+                         "name": "GOLD RUSH",
+                         "description": "蜂蜜與波本威士忌"
+                    },
+                    {
+                         "name": "SIDE CAR",
+                         "description": "白蘭地基底經典款"
+                    },
+                    {
+                         "name": "METROPOLE",
+                         "description": "口感偏 Dry"
+                    }
+               ]
+          },
+          {
+               "category": "現代模式",
+               "items": [
+                    {
+                         "name": "隨便",
+                         "price": 350,
+                         "ingredients": [ "琴酒", "瑪黛茶", "洛神玫瑰醋", "黑糖" ]
+                    },
+                    {
+                         "name": "都可以",
+                         "price": 350,
+                         "ingredients": [ "伏特加", "玄米茶", "小黃瓜", "蘇打水" ]
+                    },
+                    {
+                         "name": "沒想法",
+                         "price": 350,
+                         "ingredients": [ "白蘭地", "白葡萄", "蜂蜜醋" ]
+                    },
+                    {
+                         "name": "你決定",
+                         "price": 350,
+                         "ingredients": [ "琴酒", "東方美人茶", "荔枝", "麝香葡萄" ]
+                    },
+                    {
+                         "name": "初見安安",
+                         "price": 350,
+                         "ingredients": [ "伏特加", "梅酒", "蘋果醋", "蘇打水" ]
+                    },
+                    {
+                         "name": "DD仔",
+                         "price": 350,
+                         "ingredients": [ "白蘭地", "奶酒", "咖啡", "奶蓋" ]
+                    },
+                    {
+                         "name": "嘎奇粉",
+                         "price": 350,
+                         "ingredients": [ "龍舌蘭", "黑醋栗", "蔓越莓", "香艾酒" ]
+                    },
+                    {
+                         "name": "CP廚",
+                         "price": 350,
+                         "ingredients": [ "蘭姆酒", "紅茶", "鮮奶油", "蜂蜜", "黑糖" ]
+                    },
+                    {
+                         "name": "挑戰者",
+                         "price": 350,
+                         "ingredients": [ "威士忌", "白蘭地", "苦精", "葡萄柚" ]
+                    },
+                    {
+                         "name": "古龍調查",
+                         "price": 350,
+                         "ingredients": [ "野格", "香艾酒", "艾普羅", "多香果" ]
+                    },
+                    {
+                         "name": "薪王的化身",
+                         "price": 350,
+                         "ingredients": [ "泥煤威士忌", "烏醋", "麝香葡萄", "薑汁汽水" ]
+                    },
+                    {
+                         "name": "神機錯亂",
+                         "price": 400,
+                         "description": "喝完我再告訴你裡面是什麼"
+                    },
+                    {
+                         "name": "客製化即興特調",
+                         "description": "根據喜好風味、基酒、酸甜、氣泡需求調整"
+                    }
+               ]
+          },
+          {
+               "category": "練習模式",
+               "items": [
+                    {
+                         "name": "灰姑娘",
+                         "price": 250,
+                         "ingredients": [ "柳橙汁", "鳳梨汁", "檸檬汁" ]
+                    },
+                    {
+                         "name": "蜂之舞",
+                         "price": 250,
+                         "ingredients": [ "蜂蜜醋", "柳橙汁", "蘋果汁", "蘇打水" ]
+                    },
+                    {
+                         "name": "黑色詛咒",
+                         "price": 150,
+                         "ingredients": [ "義式濃縮咖啡", "檸檬", "可樂" ]
+                    },
+                    {
+                         "name": "白色祝福",
+                         "price": 150,
+                         "ingredients": [ "拿鐵" ]
+                    },
+                    {
+                         "name": "我是小朋友我喝果汁",
+                         "price": 100,
+                         "ingredients": [ "蔓越莓", "柳橙汁", "蘋果汁", "鳳梨汁" ]
+                    },
+                    {
+                         "name": "今天以茶代酒啦",
+                         "price": 100,
+                         "options": [ "玄米茶", "紅茶", "玄米拿鐵", "紅茶拿鐵" ]
+                    },
+                    {
+                         "name": "肥宅快樂水是不敗的",
+                         "price": 100,
+                         "options": [ "可樂", "雪碧", "通寧", "薑汁", "紅牛" ]
+                    }
+               ]
+          },
+          {
+               "category": "DLC內容",
+               "items": [
+                    {
+                         "name": "小紅酒",
+                         "price": 300,
+                         "description": "單杯瓶裝"
+                    },
+                    {
+                         "name": "小白酒",
+                         "price": 300,
+                         "description": "單杯瓶裝"
+                    },
+                    {
+                         "name": "小氣泡酒",
+                         "price": 300,
+                         "description": "單杯瓶裝"
+                    },
+                    {
+                         "name": "威士忌",
+                         "type": "杯/瓶",
+                         "price": "視品項而定"
+                    },
+                    {
+                         "name": "白蘭地",
+                         "type": "杯/瓶",
+                         "price": "視品項而定"
+                    },
+                    {
+                         "name": "艾雷特製三明治",
+                         "price": 180,
+                         "ingredients": [ "生火腿", "艾曼塔乾酪", "鮪魚" ]
+                    },
+                    {
+                         "name": "配動畫的點心盤",
+                         "price": 120,
+                         "ingredients": [ "玉米片", "莎莎醬", "堅果" ]
+                    }
+               ]
+          }
+     ]
+}

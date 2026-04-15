@@ -115,6 +115,13 @@ body {
           filter: brightness(0.6);
      }
 
+     .hero-image-box_2 img {
+          width: 130px;
+          height: 130px;
+          object-fit: cover;
+          filter: brightness(0.6);
+     }
+
 .hero-overlay {
      position: absolute;
      top: 0;

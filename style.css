@@ -1,10 +1,15 @@
 :root {
      --primary: #3a859e; /* 主色調：深湖藍 */
      --secondary: #ae8c5f; /* 副色調：古銅棕 */
-     --bg: #ffffff;
-     --text: #333333;
-     --light-gray: #f4f4f4;
-     --nav-height: 60px;
+     --text: #eeeeee; /* 深色背景下的主要文字色 */
+     --text-muted: #aaaaaa; /* 深色背景下的次要文字色 */
+     /* 深色漸層背景 */
+     --bg-start: #1a1a1a;
+     --bg-end: #2b2b2b;
+     --card-bg: rgba(255, 255, 255, 0.05); /* 卡片半透明背景 */
+
+     --nav-height: 70px;
+     --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* 平滑過渡特效 */
 }
 
 * {
@@ -15,185 +20,300 @@
 
 body {
      font-family: 'Noto Sans TC', sans-serif;
-     background-color: var(--bg);
      color: var(--text);
      line-height: 1.6;
+     margin: 0;
+     /* 漸層背景 */
+     background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+     background-attachment: fixed; /* 背景固定，內容捲動 */
 }
 
-/* Navbar - Uniqlo 極簡風 */
+/* 捲動淡入特效的初始狀態 */
+.fade-in {
+     opacity: 0;
+     transform: translateY(30px);
+     transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+     /* 捲動到可見時的狀態 */
+     .fade-in.visible {
+          opacity: 1;
+          transform: translateY(0);
+     }
+
+/* Navbar */
 .navbar {
      position: fixed;
      top: 0;
      width: 100%;
      height: var(--nav-height);
-     background: white;
-     border-bottom: 1px solid #ddd;
-     z-index: 1000;
+     background: rgba(26, 26, 26, 0.95); /* 半透明導覽列 */
+     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+     z-index: 2000;
      display: flex;
      align-items: center;
 }
 
 .nav-container {
-     max-width: 1200px;
+     max-width: 1400px;
      width: 100%;
      margin: 0 auto;
-     padding: 0 20px;
+     padding: 0 30px;
      display: flex;
      justify-content: space-between;
      align-items: center;
 }
 
-.logo {
+.logo-wrapper {
+     display: flex;
+     align-items: center;
+     gap: 15px;
+}
+
+.nav-logo {
+     height: 40px;
+     width: auto;
+     object-fit: contain;
+}
+
+.logo-text {
      font-weight: 700;
-     font-size: 1.5rem;
+     font-size: 1.6rem;
      color: var(--primary);
      letter-spacing: -1px;
 }
 
 #searchInput {
-     padding: 8px 12px;
-     border: 1px solid #ccc;
-     width: 250px;
+     padding: 10px 15px;
+     border: 1px solid rgba(255, 255, 255, 0.2);
+     background: rgba(255, 255, 255, 0.1);
+     color: white;
+     width: 300px;
      outline: none;
-     transition: border 0.3s;
+     transition: var(--transition);
 }
 
      #searchInput:focus {
           border-color: var(--primary);
+          background: rgba(255, 255, 255, 0.15);
+          box-shadow: 0 0 10px rgba(58, 133, 158, 0.5); /* 霓虹燈特效 */
      }
 
 /* Hero Section */
 .hero {
      margin-top: var(--nav-height);
-     padding: 100px 20px;
-     background-color: var(--light-gray);
+     padding: 150px 30px;
      text-align: center;
+     background: radial-gradient(circle, rgba(58, 133, 158, 0.1) 0%, rgba(26, 26, 26, 0.1) 70%);
 }
 
      .hero h1 {
-          font-size: 3.5rem;
+          font-size: 4.5rem;
           line-height: 1.1;
-          margin-bottom: 20px;
-          color: var(--text);
+          margin-bottom: 25px;
      }
 
 .highlight {
      color: var(--primary);
+     text-shadow: 0 0 15px rgba(58, 133, 158, 0.7); /* 標題霓虹特效 */
 }
 
 .status-badge {
      display: inline-block;
-     margin-top: 30px;
-     padding: 5px 15px;
+     margin-top: 40px;
+     padding: 8px 20px;
      background: var(--secondary);
      color: white;
-     font-size: 0.9rem;
+     font-size: 1rem;
      font-weight: bold;
+     border-radius: 4px;
 }
 
 /* Main Content Area */
 .main-content {
-     max-width: 1200px;
+     max-width: 1400px;
      margin: 0 auto;
-     padding: 60px 20px;
+     padding: 80px 30px;
 }
 
-/* Info Cards */
+/* Info Photo Section */
+.info-photo-section {
+     margin-bottom: 100px;
+}
+
 .info-grid {
      display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
      gap: 30px;
-     margin-bottom: 80px;
-}
-
-.info-card {
-     padding: 30px;
-     background: var(--light-gray);
-     border-top: 4px solid var(--secondary);
-}
-
-     .info-card h3 {
-          color: var(--secondary);
-          margin-bottom: 10px;
-          font-size: 1.1rem;
-     }
-
-/* Menu Section */
-.menu-group {
      margin-bottom: 60px;
 }
 
+.info-card {
+     padding: 35px;
+     background: var(--card-bg);
+     border: 1px solid rgba(255, 255, 255, 0.05);
+     border-top: 4px solid var(--secondary);
+     transition: var(--transition);
+}
+
+     .info-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+     }
+
+     .info-card h3 {
+          color: var(--secondary);
+          margin-bottom: 15px;
+          font-size: 1.2rem;
+     }
+
+/* 照片展示區 */
+.photo-gallery {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+     gap: 20px;
+}
+
+.gallery-item {
+     overflow: hidden;
+     position: relative;
+     aspect-ratio: 16 / 9; /* 統一照片比例 */
+     border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.gallery-img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     filter: grayscale(30%); /* 初始輕微灰階 */
+     transition: var(--transition);
+     transform: scale(1);
+}
+
+.gallery-item:hover .gallery-img {
+     filter: grayscale(0%); /* 滑鼠移入恢復色彩 */
+     transform: scale(1.05); /* 輕微放大特效 */
+}
+
+/* Menu Section */
+.menu-group {
+     margin-bottom: 80px;
+}
+
 .category-title {
-     font-size: 2rem;
-     border-bottom: 2px solid var(--primary);
-     padding-bottom: 10px;
-     margin-bottom: 30px;
+     font-size: 2.5rem;
+     border-bottom: 3px solid var(--primary);
+     padding-bottom: 15px;
+     margin-bottom: 40px;
      color: var(--primary);
+     text-shadow: 0 0 10px rgba(58, 133, 158, 0.3);
 }
 
 .items-grid {
      display: grid;
-     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-     gap: 20px;
+     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+     gap: 25px;
 }
 
 .item-card {
      display: flex;
      justify-content: space-between;
-     padding: 20px;
-     border: 1px solid #eee;
-     transition: 0.3s;
+     padding: 25px;
+     background: var(--card-bg);
+     border: 1px solid rgba(255, 255, 255, 0.05);
+     transition: var(--transition);
+     cursor: pointer;
 }
 
+     /* 互動式卡片特效 */
      .item-card:hover {
-          background: var(--light-gray);
+          background: rgba(255, 255, 255, 0.08);
+          transform: scale(1.03); /* 輕微放大 */
+          border-color: var(--primary);
+          box-shadow: 0 0 15px rgba(58, 133, 158, 0.4); /* 霓虹燈霓虹特效 */
      }
 
 .item-type {
      display: block;
-     font-size: 0.7rem;
+     font-size: 0.75rem;
      color: var(--secondary);
      font-weight: bold;
      text-transform: uppercase;
-     margin-bottom: 5px;
+     margin-bottom: 8px;
+     letter-spacing: 1px;
 }
 
 .item-name {
-     font-size: 1.1rem;
-     margin-bottom: 5px;
+     font-size: 1.2rem;
+     margin-bottom: 8px;
+     color: white;
 }
 
 .item-contents {
-     font-size: 0.85rem;
-     color: #777;
+     font-size: 0.9rem;
+     color: var(--text-muted);
 }
 
 .item-price {
      font-weight: 700;
+     font-size: 1.1rem;
      color: var(--primary);
      white-space: nowrap;
-     margin-left: 15px;
+     margin-left: 20px;
+     text-shadow: 0 0 5px rgba(58, 133, 158, 0.5);
 }
 
 /* Footer */
 .footer {
-     padding: 60px 20px;
-     background: var(--dark, #222);
-     color: #999;
+     padding: 80px 30px;
+     background: #111;
+     color: #777;
      text-align: center;
-     font-size: 0.8rem;
+     font-size: 0.9rem;
+     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer-inner p {
-     margin-bottom: 10px;
+     margin-bottom: 15px;
+}
+
+.footer .warning {
+     color: #999;
+     font-weight: bold;
+     margin-top: 20px;
+}
+
+.loading, .no-result, .error {
+     text-align: center;
+     padding: 80px;
+     font-weight: bold;
+     color: var(--primary);
+}
+
+@media (max-width: 992px) {
+     .hero h1 {
+          font-size: 3.5rem;
+     }
+
+     .hero {
+          padding: 100px 20px;
+     }
 }
 
 @media (max-width: 768px) {
      .hero h1 {
-          font-size: 2.5rem;
+          font-size: 2.8rem;
      }
 
      #searchInput {
-          width: 150px;
+          width: 180px;
+     }
+
+     .nav-container {
+          padding: 0 15px;
+     }
+
+     .logo-text {
+          font-size: 1.3rem;
      }
 }

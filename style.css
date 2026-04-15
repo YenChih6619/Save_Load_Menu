@@ -152,6 +152,19 @@ body {
      margin-bottom: 20px;
 }
 
+/* LOGO 容器樣式 */
+.hero-logo-img {
+     margin-bottom: 20px; /* 與 EST. 2024 的距離 */
+}
+
+     .hero-logo-img img {
+          height: 80px; /* 這裡調整 LOGO 的顯示高度 */
+          width: auto;
+          object-fit: contain;
+          /* 如果 LOGO 是白色或透明底，可以加點光暈感 */
+          filter: drop-shadow(0 0 10px rgba(58, 133, 158, 0.5));
+     }
+
 /* ==========================================
    4. 資訊網格 (Info Grid)
    ========================================== */
@@ -471,6 +484,10 @@ body {
      .i-contents {
           font-size: 0.75rem;
           -webkit-line-clamp: 4;
+     }
+
+     .hero-logo-img img {
+          height: 60px; /* 手機版縮小一點點 */
      }
 
      /* Tabs 在手機版改為左靠並可滑動 */

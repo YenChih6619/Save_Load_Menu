@@ -1,0 +1,66 @@
+:root {
+    --primary: #3a859e;
+    --bg: #e0e0e0;
+    --dark: #1a1a1a;
+}
+
+body {
+    background-color: #222;
+    margin: 0;
+    font-family: sans-serif;
+    color: var(--dark);
+}
+
+/* 搜尋列 */
+.top-nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--dark);
+    padding: 15px;
+}
+#searchInput {
+    width: 100%; padding: 10px;
+    border: 2px solid var(--primary);
+    background: #333; color: white;
+    border-radius: 4px;
+}
+
+.main-container {
+    max-width: 900px; margin: 0 auto;
+    background: var(--bg); padding: 30px;
+    min-height: 100vh;
+}
+
+.main-header { text-align: center; margin-bottom: 40px; }
+.logo-area h1 { font-size: 2.5rem; letter-spacing: 5px; margin: 0; }
+.divider { height: 3px; background: var(--dark); margin: 10px auto; width: 50%; }
+
+/* 分區標題 */
+.section-title {
+    border-left: 8px solid var(--primary);
+    padding-left: 15px; margin: 40px 0 20px;
+    font-size: 1.5rem; background: #d0d0d0;
+}
+
+/* 網格佈局 */
+.menu-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* 卡片風格 */
+.menu-card {
+    background: white; border: 1px solid #ccc;
+    padding: 20px; position: relative;
+    box-shadow: 4px 4px 0px var(--primary);
+}
+
+.card-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.type-tag { background: var(--primary); color: white; padding: 2px 6px; font-size: 0.8rem; }
+.price { font-weight: bold; color: var(--primary); }
+
+.item-name { margin: 5px 0; font-size: 1.2rem; color: var(--dark); }
+.flavor { font-size: 0.9rem; color: #666; font-style: italic; }
+.desc { font-size: 0.85rem; line-height: 1.4; }
+.divider-small { height: 1px; background: #eee; margin: 10px 0; }
+
+.main-footer { text-align: center; margin-top: 50px; color: #777; font-size: 0.8rem; }

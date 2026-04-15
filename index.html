@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SAVE & LOAD | 數位酒單</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="search-bar-container">
+            <input type="text" id="searchInput" placeholder="搜尋：調酒名稱、成分、分類...">
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <header class="main-header">
+            <div class="logo-area">
+                <h1>SAVE & LOAD</h1>
+                <div class="divider"></div>
+                <p class="menu-date">SETTING: 已建立新的遊戲存檔</p>
+            </div>
+        </header>
+
+        <div id="menuContent">
+            <div class="loader">讀取伺服器資料中...</div>
+        </div>
+
+        <footer class="main-footer">
+            <p>© SAVE & LOAD | {20:00~3:00}</p>
+            <p>Life Hard, Play Harder.</p>
+        </footer>
+    </div>
+
+    <script>
+        let menuData = [];
+
+        async function fetchMenu() {
+            try {
+                // 讀取扁平化後的 Menu.json
+                const response = await fetch('Menu.json');
+                menuData = await response.json();
+                renderMenu(menuData);
+            } catch (e) {
+                document.getElementById('menuContent').innerHTML = '<p class="error">載入失敗，請確認檔案環境（建議使用 Live Server）。</p>';
+            }
+        }
+
+        function renderMenu(data) {
+            const content = document.getElementById('menuContent');
+            if (data.length === 0) {
+                content.innerHTML = '<div class="no-result">找不到符合條件的品項</div>';
+                return;
+            }
+
+            // 根據 section 自動分區
+            const sections = [...new Set(data.map(item => item.section))].sort();
+            let html = '';
+
+            sections.forEach(sec => {
+                const items = data.filter(item => item.section === sec);
+                html += `
+                    <section class="menu-section">
+                        <h2 class="section-title"><span>${sec}</span></h2>
+                        <div class="menu-grid">
+                            ${items.map(item => `
+                                <div class="menu-card">
+                                    <div class="card-header">
+                                        <span class="type-tag">${item.type}</span>
+                                        <span class="price">NT$${item.price}</span>
+                                    </div>
+                                    <h3 class="item-name">${item.name}</h3>
+                                    <p class="flavor">成分：${item.flavor}</p>
+                                    <div class="divider-small"></div>
+                                    <p class="desc">${item.desc}</p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </section>
+                `;
+            });
+            content.innerHTML = html;
+        }
+
+        // 搜尋邏輯
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const k = e.target.value.toLowerCase();
+            const filtered = menuData.filter(i => 
+                i.name.toLowerCase().includes(k) || 
+                i.flavor.toLowerCase().includes(k) || 
+                i.type.toLowerCase().includes(k)
+            );
+            renderMenu(filtered);
+        });
+
+        window.onload = fetchMenu;
+    </script>
+</body>
+</html>

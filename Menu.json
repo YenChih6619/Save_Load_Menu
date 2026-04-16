@@ -6,59 +6,59 @@
                "price_default": 300,
                "items": [
                     {
-                         "name": "MOSCOS MULE",
+                         "name": "莫斯科驢子 MOSCOW MULE",
                          "description": "把伏特加跟薑汁汽水一起放在鋼杯裡面,清爽好喝"
                     },
                     {
-                         "name": "YUKIGUNI",
+                         "name": "雪國 YUKIGUNI",
                          "description": "非常經典的日式調酒,但我沒有綠櫻桃所以用酒漬櫻桃"
                     },
                     {
-                         "name": "NEGRONI",
+                         "name": "尼格羅尼 NEGRONI",
                          "description": "琴酒基底,甜甜的苦苦的我下雨天很喜歡喝這杯"
                     },
                     {
-                         "name": "AVIATION",
+                         "name": "飛行 AVIATION",
                          "description": "紫羅蘭香加黑櫻桃,藍色的很漂亮"
                     },
                     {
-                         "name": "SINGAPORE SLING",
+                         "name": "新加坡司令 SINGAPORE SLING",
                          "description": "酸酸甜甜充滿熱帶水果風味的調酒"
                     },
                     {
-                         "name": "CHAPLIN",
+                         "name": "查理卓別林 CHAPLIN",
                          "description": "莓果調性加上杏桃,也是輕鬆易飲"
                     },
                     {
-                         "name": "JUNGLE BIRD",
+                         "name": "叢林之鳥 JUNGLE BIRD",
                          "description": "這杯是充滿熱帶風味的調酒,喜歡熱帶水果的也可以試試這杯。"
                     },
                     {
-                         "name": "HEMINGWAY DAIQUIRI",
+                         "name": "海明威黛綺莉 HEMINGWAY DAIQUIRI",
                          "description": "就是那個文豪除了MOJITO之外最愛喝的酒"
                     },
                     {
-                         "name": "MARGARITA",
+                         "name": "瑪格麗特 MARGARITA",
                          "description": "講到龍舌蘭調酒我最直覺就是它"
                     },
                     {
-                         "name": "EL DIABLO",
+                         "name": "惡魔 EL DIABLO",
                          "description": "這杯酒叫暗黑破壞神不放上來對不起我自己但喝起來其實很輕鬆"
                     },
                     {
-                         "name": "GOD FATHER",
+                         "name": "教父 GOD FATHER",
                          "description": "不討厭杏仁跟威士忌的話我很推薦喝看看我的版本"
                     },
                     {
-                         "name": "GOLD RUSH",
+                         "name": "淘金潮 GOLD RUSH",
                          "description": "比起威士忌酸酒我更喜歡這杯蜂蜜跟波本真的很搭"
                     },
                     {
-                         "name": "SIDE CAR",
+                         "name": "側車 SIDE CAR",
                          "description": "白蘭地調酒第一杯就是想到它但真的很難做 我只是搖飲料的"
                     },
                     {
-                         "name": "METROPOLE",
+                         "name": "大都會 METROPOLE",
                          "description": "很多人會把這杯跟柯夢波丹搞錯但完全不一樣 我覺得這杯超Dry"
                     }
                ]
